@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #010106 0%, #010334 100%);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+#app {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #010106 0%, #010334 100%);
+}
+
+.header {
+    padding: 24px 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(107, 123, 255, 0.1);
+    background: rgba(1, 3, 52, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    background: linear-gradient(90deg, #fff 0%, #6B7BFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header .author {
+    font-size: 14px;
+    color: #9b9ba7;
+    font-weight: 500;
+}
+
+.tabs {
+    display: flex;
+    padding: 20px;
+    gap: 12px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.tab {
+    padding: 12px 24px;
+    border-radius: 12px;
+    background-color: rgba(107, 123, 255, 0.05);
+    color: #9b9ba7;
+    border: 1px solid rgba(107, 123, 255, 0.1);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.tab.active {
+    background: linear-gradient(135deg, #6B7BFF 0%, #5A6AE8 100%);
+    color: #fff;
+    border-color: #6B7BFF;
+    box-shadow: 0 4px 16px rgba(107, 123, 255, 0.3);
+}
+
+.view-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 0 20px 20px;
+}
+
+.toggle-btn {
+    padding: 12px 24px;
+    background: rgba(107, 123, 255, 0.05);
+    color: #9b9ba7;
+    border: 1px solid rgba(107, 123, 255, 0.1);
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.toggle-btn.active {
+    background: linear-gradient(135deg, #6B7BFF 0%, #5A6AE8 100%);
+    color: #fff;
+    border-color: #6B7BFF;
+    box-shadow: 0 4px 16px rgba(107, 123, 255, 0.3);
+}
+
+.digest-controls {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 20px 20px;
+}
+
+.digest-btn {
+    padding: 10px 20px;
+    background: rgba(107, 123, 255, 0.05);
+    color: #9b9ba7;
+    border: 1px solid rgba(107, 123, 255, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.digest-btn.active {
+    background: linear-gradient(135deg, #6B7BFF 0%, #5A6AE8 100%);
+    color: #fff;
+    border-color: #6B7BFF;
+    box-shadow: 0 4px 16px rgba(107, 123, 255, 0.3);
+}
+
+.news-count {
+    text-align: center;
+    padding: 10px 20px;
+    color: #888;
+    font-size: 14px;
+}
+
+.news-list {
+    padding: 0 20px 20px;
+}
+
+.news-item {
+    background: rgba(107, 123, 255, 0.03);
+    border: 1px solid rgba(107, 123, 255, 0.1);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.news-item:hover {
+    background: rgba(107, 123, 255, 0.08);
+    border-color: rgba(107, 123, 255, 0.3);
+    box-shadow: 0 8px 24px rgba(107, 123, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.news-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 12px;
+}
+
+.news-source {
+    color: #6B7BFF;
+    font-weight: 500;
+}
+
+.news-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 12px;
+}
+
+.news-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.tag {
+    background: rgba(107, 123, 255, 0.1);
+    color: #6B7BFF;
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid rgba(107, 123, 255, 0.2);
+}
+
+.news-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-primary {
+    flex: 1;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #6B7BFF 0%, #5A6AE8 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(107, 123, 255, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(107, 123, 255, 0.4);
+}
+
+.btn-secondary {
+    padding: 14px 20px;
+    background: rgba(107, 123, 255, 0.08);
+    color: #6B7BFF;
+    border: 1px solid rgba(107, 123, 255, 0.2);
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: rgba(107, 123, 255, 0.15);
+    border-color: rgba(107, 123, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.loading {
+    text-align: center;
+    padding: 40px 20px;
+    color: #888;
+}
+
+.error {
+    text-align: center;
+    padding: 40px 20px;
+    color: #ff4444;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(1, 1, 6, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.modal-content {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.time-filter {
+    text-align: center;
+    padding: 10px 20px;
+    color: #888;
+    font-size: 12px;
+}
+
+.digest-date-header {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    padding: 20px 0 16px;
+    margin-top: 12px;
+    border-bottom: 1px solid rgba(107, 123, 255, 0.2);
+    background: linear-gradient(90deg, #6B7BFF 0%, transparent 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
