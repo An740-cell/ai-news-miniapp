@@ -1,6 +1,6 @@
 // Google Sheets API service - now using backend API
-const NEWS_API_URL = 'http://localhost:3001/api/news';
-const DIGEST_API_URL = 'http://localhost:3001/api/digest';
+const NEWS_API_URL = 'https://ai-news-miniapp.onrender.com/api/news';
+const DIGEST_API_URL = 'https://ai-news-miniapp.onrender.com/api/digest';
 
 export async function fetchNews() {
   try {
