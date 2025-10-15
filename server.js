@@ -14,18 +14,30 @@ const PORT = 3001;
 app.use(cors());
 app.use(express.json());
 
-// Загружаем credentials из JSON файла
+// Загружаем credentials из переменной окружения или файла
 let auth;
 try {
-  const credentials = JSON.parse(fs.readFileSync(path.join(__dirname, 'service-account.json'), 'utf8'));
+  let credentials;
+
+  // Пробуем загрузить из переменной окружения (для продакшена)
+  if (process.env.SERVICE_ACCOUNT_JSON) {
+    console.log('Loading credentials from environment variable');
+    credentials = JSON.parse(process.env.SERVICE_ACCOUNT_JSON);
+  } else {
+    // Загружаем из файла (для локальной разработки)
+    console.log('Loading credentials from file');
+    credentials = JSON.parse(fs.readFileSync(path.join(__dirname, 'service-account.json'), 'utf8'));
+  }
 
   auth = new google.auth.GoogleAuth({
     credentials,
     scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
   });
+
+  console.log('Google Auth initialized successfully');
 } catch (error) {
   console.error('Error loading service account credentials:', error.message);
-  console.log('Please create service-account.json file in the root directory');
+  console.log('Please set SERVICE_ACCOUNT_JSON environment variable or create service-account.json file');
 }
 
 const SHEET_ID = '11w7CYyPr5R-nqe7PY43MfAj5gv531GkBruxAxzQ6_pQ';
