@@ -1,6 +1,6 @@
-// Google Sheets API service - now using backend API
-const NEWS_API_URL = 'https://ai-news-miniapp.onrender.com/api/news';
-const DIGEST_API_URL = 'https://ai-news-miniapp.onrender.com/api/digest';
+// Google Sheets API service - now using Vercel serverless functions
+const NEWS_API_URL = '/api/news';
+const DIGEST_API_URL = '/api/digest';
 
 export async function fetchNews() {
   try {
